@@ -1,0 +1,45 @@
+{% extends 'crud_main/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+    <body>
+        
+    
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+            <h3 class="text-center"> Create your account </h3>
+            <h5 class="text-center"> Start managing your data today! </h5>
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{register_form|crispy}}
+
+                <br>
+
+                <button type="submit" class="btn btn-dark w-100 btn-block p-2"> Create account </button>
+            </form>
+
+            <br>
+            
+            <div class="text-center">
+
+                <p>Already have an account ?</p>
+
+                <a class="btn btn-dark" href="{% url 'login' %}"> Sign in </a>
+
+            </div>
+
+        </div>
+
+            <br>
+    </body>
+    
+{% endblock %}
